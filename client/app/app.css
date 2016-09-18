@@ -1,5 +1,4 @@
 @import '~bootstrap/dist/css/bootstrap.css';
-@import '~bootstrap-social/bootstrap-social.css';
 /**
  * Bootstrap Fonts
  */
@@ -44,9 +43,7 @@
 
 /* Component styles are injected through gulp */
 /* inject:css */
-@import 'admin/admin.css';
 @import 'main/main.css';
 @import '../components/footer/footer.css';
 @import '../components/modal/modal.css';
-@import '../components/oauth-buttons/oauth-buttons.css';
 /* endinject */

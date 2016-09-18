@@ -5,13 +5,10 @@ import angular from 'angular';
 
 export class NavbarComponent {
 
-  constructor($location, Auth) {
+  constructor($location) {
     'ngInject';
 
     this.$location = $location;
-    this.isLoggedIn = Auth.isLoggedInSync;
-    this.isAdmin = Auth.isAdminSync;
-    this.getCurrentUser = Auth.getCurrentUserSync;
   }
 
   isActive(route) {
