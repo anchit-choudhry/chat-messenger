@@ -18,7 +18,7 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [SQLite](https://www.sqlite.org/quickstart.html)
 
 ### Setting up the MySQL Database
-----
+
 Before running the Web App, please make sure to have access and setup a MySQL Server instance
 
 For installing MySQL Server, please visit the docs at [MySQL Website](http://dev.mysql.com/doc/refman/5.7/en/installing.html)
@@ -30,7 +30,7 @@ See the file [db-schema-setup.sql](https://github.com/anchit-choudhry/chat-messe
 The SQL commands could be typed or imported using `mysql -u <username> -p < <Path to db-schema-setup.sql>`
 
 Suggestions /Feedback / Issues
-----
+
 Please report all your wonderful suggestions and improvements on the [Issues](https://github.com/anchit-choudhry/chat-messenger/issues) tab
 
 ### Developing
@@ -48,7 +48,7 @@ Run `gulp build` for building and `gulp serve` for preview.
 Running `npm test` will run the unit tests with karma.
 
 ## Userful links
-----
+
 [AngularJS](https://angularjs.org/)  
 [Bootstrap](http://getbootstrap.com/)  
 [NodeJS](https://nodejs.org/en/)  
