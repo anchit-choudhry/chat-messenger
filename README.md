@@ -1,5 +1,7 @@
 # Chat Messenger App
 
+[![Build Status](https://travis-ci.org/anchit-choudhry/chat-messenger.svg?branch=master)](https://travis-ci.org/anchit-choudhry/chat-messenger)
+
 A simple demonstration of a chat app using:
 
 **Front-end**: HTML5, Twitter Bootstrap, AngularJS  
