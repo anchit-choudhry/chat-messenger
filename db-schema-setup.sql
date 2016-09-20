@@ -10,7 +10,7 @@ GRANT ALL PRIVILEGES ON chat_app.* TO "chat_app"@"localhost";
 USE chat_app;
 
 -- Table Schema for user_info
-CREATE TABLE user_info (
+CREATE TABLE IF NOT EXISTS user_info (
     user_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL UNIQUE,
     password CHAR(128) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE user_info (
 );
 
 -- Table schema for messages
-CREATE TABLE messages (
+CREATE TABLE IF NOT EXISTS messages (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     sender_id VARCHAR(30) NOT NULL,
     message TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
