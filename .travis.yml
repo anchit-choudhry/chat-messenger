@@ -16,8 +16,7 @@ matrix:
         - node_js: 5.12.0
 before_script:
     - npm install -g gulp-cli node-gyp
-after_script:
-    - gulp test
+    - mysql -u root < ./db-schema-setup.sql
 services:
     - mysql
 env:
