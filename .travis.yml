@@ -5,7 +5,7 @@ node_js:
 addons:
   apt:
     sources:
-    # needed to install g++ that is used by npms's native modules
+    # Needed to install g++ that is used by npms's native modules
     - ubuntu-toolchain-r-test
     packages:
     - gcc-4.8

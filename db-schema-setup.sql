@@ -1,11 +1,11 @@
 -- User creation if not exists; Please feel free to use a different password
-CREATE USER IF NOT EXISTS 'chat_app'@'localhost' IDENTIFIED BY 'lets_talk';
+CREATE USER IF NOT EXISTS "chat_app"@"localhost" IDENTIFIED BY "lets_talk";
 
 -- Create database chat_app if not exists
 CREATE DATABASE IF NOT EXISTS chat_app;
 
 -- Grant permission to USER chat_app for the DATABASE chat_app
-GRANT ALL PRIVILEGES ON chat_app.* TO 'chat_app'@'localhost';
+GRANT ALL PRIVILEGES ON chat_app.* TO "chat_app"@"localhost";
 
 USE chat_app;
 
