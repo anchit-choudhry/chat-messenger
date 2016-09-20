@@ -1,12 +1,31 @@
 <header class="hero-unit">
     <h1>Hi there!</h1>
     <p class="lead">Welcome to our Group Chat Messenger! Sign in to get started</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman" />
 </header>
+<p uib-alert ng-show="alertMsg" ng-bind="alertMsg"></p>
 <section class="container">
+    <p uib-alert class="container alert-info" ng-click="isPanelOpen = !isPanelOpen">
+        Click here to Register
+    </p>
+    <div uib-collapse="!isPanelOpen">
+        <form role="form" class="form-horizontal">
+            <input type="text" class="form-control col-md-6" required="required"
+            ng-model="username" placeholder="Username" /><br/><br/>
+            <input type="text" class="form-control col-md-6" required="required"
+            ng-model="fullname" placeholder="Full Name" /><br/><br/>
+            <input type="email" class="form-control col-md-6" required="required"
+            ng-model="email" placeholder="E-mail address" /><br/><br/>
+            <input type="password" class="form-control col-md-6" required="required"
+            ng-model="password" placeholder="New Password"/><br/><br/>
+            <input type="password" class="form-control col-md-6" required="required"
+            ng-model="confirmpwd" placeholder="Confirm New Password"/><br/><br/>
+            <button type="submit" class="pull-right btn btn-info" ng-click="addUser()">Submit</button>
+        </form>
+    </div>
     <h1 class="page-header">Features:</h1>
     <ul class="nav col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in $ctrl.awesomeThings">
-        <li uib-tooltip="{{thing}}" tooltip-placement="top-left">{{thing}}</li>
+        <li uib-tooltip="{{thing}}" tooltip-placement="top-left">- {{thing}}</li>
     </ul>
 </section>
 <hr/>

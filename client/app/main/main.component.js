@@ -2,6 +2,8 @@ import angular from 'angular';
 const ngRoute = require('angular-route');
 import routing from './main.routes';
 
+var mysql = require('mysql');
+
 export class MainController {
 
   /*@ngInject*/
@@ -14,6 +16,7 @@ export class MainController {
       .then(response => {
         this.awesomeThings = response.data;
       });
+    this.isPanelOpen = false;
   }
 }
 

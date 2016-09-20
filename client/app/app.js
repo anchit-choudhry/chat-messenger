@@ -1,7 +1,7 @@
 'use strict';
 
 import angular from 'angular';
-// import ngAnimate from 'angular-animate';
+import ngAnimate from 'angular-animate';
 import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
@@ -24,8 +24,8 @@ import util from '../components/util/util.module';
 
 import './app.css';
 
-angular.module('chatMessengerApp', [ngCookies, ngResource, ngSanitize, ngRoute, uiBootstrap, navbar,
-    footer, main, constants, util
+angular.module('chatMessengerApp', [ngAnimate, ngCookies, ngResource, ngSanitize, ngRoute,
+    uiBootstrap, navbar, footer, main, constants, util
   ])
   .config(routeConfig);
 
