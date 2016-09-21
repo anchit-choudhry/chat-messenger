@@ -16,7 +16,7 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 - [Git](https://git-scm.com)
 - [Node.js](https://nodejs.org/en) (Node >= 6.x.x) and [npm](https://www.npmjs.com) (npm >= 3.x.x)
-- [Gulp](http://gulpjs.com) (`npm install --g gulp`)
+- [Gulp](http://gulpjs.com) (`npm install -g gulp`)
 - [node-gyp](https://github.com/nodejs/node-gyp) (`npm install -g node-gyp`)
 - [MySQL Server Instance](https://dev.mysql.com/downloads/mysql)
 
@@ -57,6 +57,6 @@ Running `npm test` will run the unit tests with karma.
 [Bootstrap](http://getbootstrap.com)  
 [Node.js](https://nodejs.org/en)  
 [npm(Node Package Manager)](https://www.npmjs.com)  
-[Express](https://expressjs.com)
-[Socket.IO](http://socket.io)
+[Express](https://expressjs.com)  
+[Socket.IO](http://socket.io)  
 [MySQL](http://dev.mysql.com/doc/refman/5.7/en/installing.html)
