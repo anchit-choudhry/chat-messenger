@@ -5,7 +5,7 @@
 A simple demonstration of a chat app using:
 
 **Front-end**: HTML5, Twitter Bootstrap, AngularJS  
-**Middleware**: NodeJS  
+**Middleware**: Node.js  
 **Backend**: MySQL 5.7
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 4.0.5.
@@ -15,8 +15,10 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 ### Prerequisites
 
 - [Git](https://git-scm.com)
-- [Node.js and npm](https://nodejs.org/en) Node >= 6.x.x, npm >= 3.x.x
-- [Gulp](http://gulpjs.com) (`npm install --global gulp`)
+- [Node.js](https://nodejs.org/en) (Node >= 6.x.x) and [npm](https://www.npmjs.com) (npm >= 3.x.x)
+- [Gulp](http://gulpjs.com) (`npm install --g gulp`)
+- [node-gyp](https://github.com/nodejs/node-gyp) (`npm install -g node-gyp`)
+- [MySQL Server Instance](https://dev.mysql.com/downloads/mysql)
 
 ### Setting up the MySQL Database
 
@@ -30,7 +32,7 @@ See the file [db-schema-setup.sql](db-schema-setup.sql) which contains the SQL c
 
 The SQL commands could be typed or imported using `mysql -u <username> -p < <Path to db-schema-setup.sql>`
 
-Suggestions /Feedback / Issues
+### Suggestions/Feedback/Issues
 
 Please report all your wonderful suggestions and improvements on the [Issues](../../issues) tab
 
@@ -50,8 +52,11 @@ Running `npm test` will run the unit tests with karma.
 
 ## Userful links
 
+[HTML5](https://www.w3.org/TR/html5)  
 [AngularJS](https://angularjs.org)  
 [Bootstrap](http://getbootstrap.com)  
-[NodeJS](https://nodejs.org/en)  
+[Node.js](https://nodejs.org/en)  
 [npm(Node Package Manager)](https://www.npmjs.com)  
+[Express](https://expressjs.com)
+[Socket.IO](http://socket.io)
 [MySQL](http://dev.mysql.com/doc/refman/5.7/en/installing.html)
