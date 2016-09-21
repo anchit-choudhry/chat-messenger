@@ -15,6 +15,14 @@ export class MainController {
     }
 
     $onInit() {
+        var cookieStore = this.$cookies.getObject('profile');
+        if(cookieStore) {
+            this.checkValidSession(cookieStore).then(response => {
+                if(response) {
+                    this.$location.path('/chat');
+                }
+            });
+        };
         this.$http.get('/api/things').then(response => {
             this.awesomeThings = response.data;
         });
@@ -24,6 +32,20 @@ export class MainController {
         this.password = null;
         this.confirmpwd = null;
         this.alertMsg = null;
+    }
+
+    checkValidSession(cookieStore) {
+        var deferred = this.$q.defer();
+        this.$http({
+            method : 'GET',
+            url: '/api/checksession',
+            params: cookieStore
+        }).success(function (response) {
+            deferred.resolve(response);
+        }).error(function (err) {
+            deferred.reject(err);
+        });
+        return deferred.promise;
     }
 
     updateAlert(alertVal) {

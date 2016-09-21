@@ -32,7 +32,7 @@ export function index(req, res) {
                 throw err;
             }
             console.log(rows);
-            if(rows && rows[0].total < 1) {
+            if(rows && rows[0].total === 0) {
                 userExists = false;
             }
             conn.release();

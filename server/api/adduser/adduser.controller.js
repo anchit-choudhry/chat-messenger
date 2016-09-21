@@ -1,6 +1,6 @@
 /**
 * Using Rails-like standard naming convention for endpoints.
-* GET     /api/checkuser        ->  index
+* POST    /api/adduser        ->  index
 */
 
 'use strict';
@@ -40,7 +40,7 @@ export function index(req, res) {
                 return res.json(null);
             }
             console.log(rows);
-            if(rows && rows.affectedRows == 1) {
+            if(rows && rows.affectedRows === 1) {
                 conn.query("SELECT session as session from user_info WHERE user_id = " + rows.insertId,
                     function(err, rows) {
                         if (err) {
@@ -51,7 +51,7 @@ export function index(req, res) {
                             return res.json(null);
                         }
                         console.log(rows);
-                        return rows && rows.length > 0 && rows[0].session ?
+                        return rows && rows.length === 1 && rows[0].session ?
                         res.json(rows[0].session) : res.json(null);
                 });
             }
