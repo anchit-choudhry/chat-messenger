@@ -1,5 +1,6 @@
 import angular from 'angular';
 const ngRoute = require('angular-route');
+const ngCookies = require('angular-cookies');
 import routing from './main.routes';
 
 export class MainController {
@@ -111,7 +112,7 @@ export class MainController {
     }
 }
 
-export default angular.module('chatMessengerApp.main', [ngRoute])
+export default angular.module('chatMessengerApp.main', [ngRoute, ngCookies])
 .config(routing)
 .component('main', {
     template: require('./main.html'),
