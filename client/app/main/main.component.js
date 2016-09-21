@@ -6,12 +6,17 @@ import routing from './main.routes';
 export class MainController {
 
     /*@ngInject*/
-    constructor($cookies, $http, $location, $q, $timeout) {
+    constructor($cookies, $http, $location, $q, $scope, socket, $timeout) {
         this.$cookies = $cookies;
         this.$http = $http;
         this.$location = $location;
         this.$q = $q;
         this.$timeout = $timeout;
+        this.socket = socket;
+
+        $scope.$on('$destroy', function() {
+            socket.unsyncUpdates('thing');
+    });
     }
 
     $onInit() {
@@ -32,6 +37,7 @@ export class MainController {
         this.password = null;
         this.confirmpwd = null;
         this.alertMsg = null;
+        this.socket.syncUpdates('thing', this.awesomeThings);
     }
 
     checkValidSession(cookieStore) {
