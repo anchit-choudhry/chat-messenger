@@ -19,13 +19,14 @@ import {
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
+import chat from './chat/chat.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 
 import './app.css';
 
 angular.module('chatMessengerApp', [ngAnimate, ngCookies, ngResource, ngSanitize, ngRoute,
-    uiBootstrap, navbar, footer, main, constants, util
+    uiBootstrap, navbar, footer, main, chat, constants, util
   ])
   .config(routeConfig);
 

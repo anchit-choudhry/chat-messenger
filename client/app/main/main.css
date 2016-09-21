@@ -7,6 +7,10 @@
   margin-top: -20px;
 }
 
+p[uib-alert] {
+    text-align: center;
+}
+
 #banner h1 {
   font-size: 60px;
   line-height: 1;
