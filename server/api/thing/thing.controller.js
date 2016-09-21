@@ -1,7 +1,7 @@
 /**
- * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- */
+* Using Rails-like standard naming convention for endpoints.
+* GET     /api/things              ->  index
+*/
 
 'use strict';
 
@@ -15,5 +15,5 @@ var features = [
 
 // Gets a list of Things
 export function index(req, res) {
-  res.json(features);
+    res.json(features);
 }

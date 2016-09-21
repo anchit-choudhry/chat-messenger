@@ -16,7 +16,7 @@ export class MainController {
 
         $scope.$on('$destroy', function() {
             socket.unsyncUpdates('thing');
-    });
+        });
     }
 
     $onInit() {
@@ -27,7 +27,7 @@ export class MainController {
                     this.$location.path('/chat');
                 }
             });
-        };
+        }
         this.$http.get('/api/things').then(response => {
             this.awesomeThings = response.data;
         });
@@ -43,12 +43,13 @@ export class MainController {
     checkValidSession(cookieStore) {
         var deferred = this.$q.defer();
         this.$http({
-            method : 'GET',
+            method: 'GET',
             url: '/api/checksession',
             params: cookieStore
-        }).success(function (response) {
+        }).success(function(response) {
             deferred.resolve(response);
-        }).error(function (err) {
+        })
+        .error(function(err) {
             deferred.reject(err);
         });
         return deferred.promise;
@@ -59,21 +60,21 @@ export class MainController {
     }
 
     checkUser() {
-        if(angular.isUndefined(this.username) || this.username === null ||
-        this.username.trim().length < 1) {
-            this.alertMsg = { type : 'warning', text : 'Oops! Please type in a username!' };
+        if(angular.isUndefined(this.username) || this.username === null
+        || this.username.trim().length < 1) {
+            this.alertMsg = { type: 'warning', text: 'Oops! Please type in a username!' };
             return true;
         }
         return this.$http.get('/api/checkUser?username=' + this.username).then(response => {
             var alertVal = {};
             if(response.status !== 200) {
-                alertVal = { type : 'danger' , text: 'Oops! We encountered a network error!' };
+                alertVal = { type: 'danger', text: 'Oops! We encountered a network error!' };
                 this.updateAlert(alertVal);
                 return true;
             }
-            alertVal = !response.data ?
-            { type : 'success', text : 'Yay! The username is good for you to use!' } :
-            { type : 'warning', text : 'Sorry! This username is already in use!' };
+            alertVal = !response.data
+            ? { type: 'success', text: 'Yay! The username is good for you to use!' }
+            : { type: 'warning', text: 'Sorry! This username is already in use!' };
             this.updateAlert(alertVal);
             return response.data;
         });
@@ -82,8 +83,8 @@ export class MainController {
     addUser() {
         if(this.password !== this.confirmpwd) {
             this.updateAlert({
-                type : 'info',
-                text : 'Oops! Please make sure the password are same in both the fields!'
+                type: 'info',
+                text: 'Oops! Please make sure the password are same in both the fields!'
             });
             return false;
         }
@@ -92,29 +93,28 @@ export class MainController {
                 return false;
             } else {
                 var params = {
-                    username : this.username,
+                    username: this.username,
                     password: this.password,
-                    email : this.email
+                    email: this.email
                 };
-                return this.callAddUserREST(params).then(response => {
+                return this.callAddUserREST(params).then(res => {
                     var alertVal = null;
-                    if(!response) {
+                    if(!res) {
                         alertVal = {
-                            type : 'danger',
-                            text : 'Oops! Something went wrong while registering your username!'
+                            type: 'danger',
+                            text: 'Oops! Something went wrong while registering your username!'
                         };
                         this.updateAlert(alertVal);
                         return false;
-                    }
-                    else {
+                    } else {
                         var obj = {
                             username: this.username,
-                            session : response
+                            session: response
                         };
                         this.$cookies.putObject('profile', obj);
                         alertVal = {
-                            type : 'success',
-                            text : 'Cool! You are registered and ready to chat!'
+                            type: 'success',
+                            text: 'Cool! You are registered and ready to chat!'
                         };
                         this.updateAlert(alertVal);
                         this.$location.path('/chat');
@@ -128,12 +128,13 @@ export class MainController {
     callAddUserREST(params) {
         var deferred = this.$q.defer();
         this.$http({
-            method : 'POST',
+            method: 'POST',
             url: '/api/adduser',
             data: params
-        }).success(function (response) {
+        }).success(function(response) {
             deferred.resolve(response);
-        }).error(function (err) {
+        })
+        .error(function(err) {
             deferred.reject(err);
         });
         return deferred.promise;

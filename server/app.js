@@ -12,18 +12,18 @@ import http from 'http';
 var mysql = require('./mysql');
 
 mysql.pool.getConnection(function(err, conn) {
-    if (err) {
+    if(err) {
         console.log('Sorry! Issue connecting to the MySQL Database. The process will exit');
         // If issue arises from something other than not connecting, making sure to release the pool
-        if (conn) {
+        if(conn) {
             conn.release();
         }
-        throw err;
+        console.log(err);
         process.exit(-1);
     }
     conn.query('SELECT COUNT(*) AS total FROM information_schema.tables WHERE table_schema = \''
     + mysql.dbName + '\'', function(err, rows) {
-        if (err) {
+        if(err) {
             throw err;
         }
         if(!rows || rows[0].total !== 2) {
@@ -39,8 +39,8 @@ mysql.pool.getConnection(function(err, conn) {
 var app = express();
 var server = http.createServer(app);
 var socketio = require('socket.io')(server, {
-  serveClient: config.env !== 'production',
-  path: '/socket.io-client'
+    serveClient: config.env !== 'production',
+    path: '/socket.io-client'
 });
 require('./config/socketio').default(socketio);
 require('./config/express').default(app);

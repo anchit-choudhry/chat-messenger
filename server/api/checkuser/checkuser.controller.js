@@ -1,7 +1,7 @@
 /**
- * Using Rails-like standard naming convention for endpoints.
- * GET     /api/checkuser        ->  index
- */
+* Using Rails-like standard naming convention for endpoints.
+* GET     /api/checkuser        ->  index
+*/
 
 'use strict';
 
@@ -17,18 +17,18 @@ export function index(req, res) {
 
     return mysql.pool.getConnection(function(err, conn) {
         var userExists = true;
-        if (err) {
+        if(err) {
             console.log('Sorry! Issue connecting to the MySQL Database. The process will exit');
             // If issue arises from something other than not connecting, making sure to release the pool
-            if (conn) {
+            if(conn) {
                 conn.release();
             }
-            throw err;
+            console.log(err);
             return res.json(userExists);
         }
         conn.query('SELECT COUNT(*) AS total FROM chat_app.user_info WHERE username = \''
         + username + '\'', function(err, rows) {
-            if (err) {
+            if(err) {
                 throw err;
             }
             console.log(rows);

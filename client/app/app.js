@@ -13,7 +13,7 @@ import uiBootstrap from 'angular-ui-bootstrap';
 
 
 import {
-  routeConfig
+    routeConfig
 } from './app.config';
 
 import navbar from '../components/navbar/navbar.component';
@@ -26,14 +26,14 @@ import socket from '../components/socket/socket.service';
 
 import './app.css';
 
-angular.module('chatMessengerApp', [ngAnimate, ngCookies, ngResource, ngSanitize, 'btford.socket-io'
-    ,ngRoute, uiBootstrap, navbar, footer, main, chat, constants, socket, util
-  ])
-  .config(routeConfig);
+angular.module('chatMessengerApp', [ngAnimate, ngCookies, ngResource, ngSanitize, 'btford.socket-io',
+ngRoute, uiBootstrap, navbar, footer, main, chat, constants, socket, util
+])
+.config(routeConfig);
 
 angular.element(document)
-  .ready(() => {
+.ready(() => {
     angular.bootstrap(document, ['chatMessengerApp'], {
-      strictDi: true
+        strictDi: true
     });
-  });
+});
