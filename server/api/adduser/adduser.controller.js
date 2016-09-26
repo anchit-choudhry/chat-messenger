@@ -55,6 +55,7 @@ export function index(req, res) {
                     ? res.json(sessionRow[0].session) : res.json(null);
                 });
             }
+            return res.json(null);
         });
     });
 }

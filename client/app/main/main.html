@@ -1,16 +1,33 @@
 <header class="hero-unit">
     <h1>Hi there!</h1>
     <p class="lead">Welcome to our Group Chat Messenger! Sign in to get started</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman" />
+    <img src="assets/images/yeoman.png" alt="Chat Yoeman" />
 </header>
-<p uib-alert ng-show="$ctrl.alertMsg" ng-class="'alert-' + ($ctrl.alertMsg.type || 'warning')"
-ng-bind="$ctrl.alertMsg.text" />
+<p uib-alert ng-if="$ctrl.alertMsg" ng-class="'alert-' + ($ctrl.alertMsg.type || 'warning')"
+ng-bind="$ctrl.alertMsg.text"></p>
 <section class="container">
-    <p uib-alert class="container alert-info" ng-click="isPanelOpen = !isPanelOpen">
-        Click here to Register
+    <form role="form" class="form-inline" ng-submit="$ctrl.loginUser()">
+        <div class="form-group">
+            <input type="text" class="form-control" required ng-model="$ctrl.username" autofocus
+            placeholder="Username" />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control col-xs-12" required ng-model="$ctrl.password"
+            placeholder="Password"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-info">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login
+            </button>
+        </div>
+    </form>
+</section>
+<section class="container">
+    <p uib-alert class="alert-info" ng-click="isPanelOpen = !isPanelOpen">
+        Click here to Register!
     </p>
     <div uib-collapse="!isPanelOpen">
-        <form role="form" class="form-horizontal" ng-submit="$ctrl.addUser()">
+        <form role="form" class="form form-horizontal" ng-submit="$ctrl.addUser()">
             <input type="text" class="form-control" required="required"
             ng-model="$ctrl.username" placeholder="Username" ng-blur="$ctrl.checkUser()" /><br/>
             <input type="email" class="form-control" required="required"

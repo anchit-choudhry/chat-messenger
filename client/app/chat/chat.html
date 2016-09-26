@@ -1,1 +1,18 @@
-<p>HERE</p>
+<p uib-alert ng-if="$ctrl.alertMsg" ng-class="'alert-' + ($ctrl.alertMsg.type || 'warning')"
+ng-bind="$ctrl.alertMsg.text" />
+<section class="container">
+    <p uib-alert class="alert-info">
+        Welcome, {{$ctrl.username}}!&nbsp;
+        <button type="button" class="btn btn-link" ng-click="$ctrl.logout()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout
+        </button>
+    </p>
+    <article>
+        <span class="row">Filter: Show New Messages | Show All</span>
+        <input type="text" class="row form-control" placeholder="Type your message here. <Enter> is send..."
+            ng-model="$ctrl.message" ng-keyup="$event.keyCode === 13 && $ctrl.sendMessage($ctrl.message)"
+            autofocus>
+        </input>
+    </article>
+</section>
+<hr/>
