@@ -77,8 +77,8 @@ export class MainController {
         }).then(response => {
             var alertVal = !response || response.status !== 200
             ? { type: 'danger', text: 'Oops! We encountered a network error' }
-            : ( response.data === 'None'
-            ? { type: 'warning', text: 'Oops! Incorrect username/password combination' } : null );
+            : response.data === 'None'
+            ? { type: 'warning', text: 'Oops! Incorrect username/password combination' } : null;
             if(alertVal !== null) {
                 this.updateAlert(alertVal);
                 return false;

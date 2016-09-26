@@ -18,7 +18,7 @@ export class ChatController {
         if(cookieStore) {
             this.checkValidSession(cookieStore).then(response => {
                 if(!response) {
-                    this.$location.path('/')
+                    this.$location.path('/');
                 }
             });
         }
@@ -52,43 +52,43 @@ export class ChatController {
         return this.$http({
             method: 'POST',
             url: '/api/logout',
-            data: { session : this.session }
+            data: { session: this.session }
         }).then(response => {
             var alertVal = !response || response.status !== 200
             ? { type: 'danger', text: 'Oops! We encountered a network error' }
-            : ( response.data === false
-                ? { type: 'warning', text: 'Oops! Invalid User/User already logged out' } : null );
-                if(alertVal === null) {
-                    this.$cookies.remove('profile');
-                    alertVal = { type: 'success', text: 'Great! Logging you out in a while' };
-                }
-                this.updateAlert(alertVal);
-                this.$location.path('/');
-            });
-        }
-
-        getMessages(session, type) {
-            return [];
-            var params = type === 'new' ? { type: 'new', limit: -1 } : { type : 'all', limit : -1};
-            return this.$http({
-                method: 'POST',
-                url: '/api/getMessages',
-                data: params
-            }).then(repsonse => {
-                return [];
-            });
-        }
-
-        sendMessage(text) {
-            this.message = null;
-            return true;
-        }
+            : response.data === false
+            ? { type: 'warning', text: 'Oops! Invalid User/User already logged out' } : null;
+            if(alertVal === null) {
+                this.$cookies.remove('profile');
+                alertVal = { type: 'success', text: 'Great! Logging you out in a while' };
+            }
+            this.updateAlert(alertVal);
+            this.$location.path('/');
+        });
     }
 
-    export default angular.module('chatMessengerApp.chat', [ngRoute, ngCookies])
-    .config(routing)
-    .component('chat', {
-        template: require('./chat.html'),
-        controller: ChatController
-    })
-    .name;
+    getMessages(session, type) {
+        return [];
+        /*var params = type === 'new' ? { type: 'new', limit: -1 } : { type : 'all', limit : -1};
+        return this.$http({
+            method: 'POST',
+            url: '/api/getMessages',
+            data: params
+        }).then(repsonse => {
+            return [];
+        });*/
+    }
+
+    sendMessage(text) {
+        this.message = null;
+        return true;
+    }
+}
+
+export default angular.module('chatMessengerApp.chat', [ngRoute, ngCookies])
+.config(routing)
+.component('chat', {
+    template: require('./chat.html'),
+    controller: ChatController
+})
+.name;

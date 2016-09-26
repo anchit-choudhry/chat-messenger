@@ -27,7 +27,7 @@ export function index(req, res) {
             return res.json(undefined);
         }
         return conn.query('UPDATE chat_app.user_info SET session=UUID() WHERE username = \''
-        + credentials.username + '\' AND password=SHA2(\'' +  credentials.password + '\', 512)',
+        + credentials.username + '\' AND password=SHA2(\'' + credentials.password + '\', 512)',
         function(err, rows) {
             if(err) {
                 if(conn) {
